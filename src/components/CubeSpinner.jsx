@@ -40,7 +40,7 @@ const CubeSpinner = ({ items }) => {
 
       setColors([getRandomColor(), getRandomColor(), getRandomColor()]);
 
-      if (spins >= 11) speed += 50; // Reduce velocidad después de 11 giros
+      if (spins >= 23) speed += 50; // Reduce velocidad después de 11 giros
       
       if (speed >= 500) { // Cuando la velocidad llega a 500ms, detenemos
         clearInterval(interval);
@@ -67,10 +67,10 @@ const CubeSpinner = ({ items }) => {
         {displayedItems.map((item, index) => (
           <motion.div
             key={index}
-            className="w-24 h-24 flex items-center justify-center text-white font-bold text-xl rounded-lg shadow-lg"
+            className="w-30 h-24 max-h-24 flex items-center justify-center p-2 text-white font-bold text-xl overflow-hidden text-ellipsis whitespace-nowrap rounded-lg shadow-lg"
             style={{ backgroundColor: colors[index] }}
             animate={{ scale: index === 1 ? 1.2 : 1 }} // El del centro se ve más grande
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
           >
             {item}
           </motion.div>
@@ -80,14 +80,14 @@ const CubeSpinner = ({ items }) => {
       {/* Botón para girar */}
       <button
         onClick={spinCubes}
-        className="px-6 py-2 bg-blue-500 text-white font-bold rounded-lg"
+        className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg cursor-pointer"
         disabled={spinning}
       >
-        {spinning ? "Girando..." : "Girar"}
+        {spinning ? "⥁" : "▶"}
       </button>
 
       {/* Resultado final */}
-      {finalItem && <p className="font-bold text-lg">Seleccionado: {finalItem}</p>}
+      {finalItem && <p className="text-black font-bold text-lg">Seleccionado: {finalItem}</p>}
     </div>
   );
 };

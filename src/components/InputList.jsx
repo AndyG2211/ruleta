@@ -14,7 +14,7 @@ const InputList = ({ onUpdateItems }) => {
 
   return (
     <div className="">
-      <ul className="overflow-y-scroll max-h-44">
+      <ul className="md:overflow-scroll max-h-44">
         {items.map((item, index) => (
           <li key={index} className=" max-w-dvw bg-gray-200 text-black p-2 rounded-md flex justify-between mt-2">
             <span>{item}</span>
@@ -40,7 +40,7 @@ const InputList = ({ onUpdateItems }) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <button onClick={addItem} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md cursor-pointer">
+        <button onClick={addItem} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md cursor-pointer shadow-lg">
         ✚
         </button>
       </div>

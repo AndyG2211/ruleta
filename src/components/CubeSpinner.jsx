@@ -68,9 +68,12 @@ const CubeSpinner = ({ items }) => {
           <motion.div
             key={index}
             className="w-30 h-24 max-h-24 flex items-center justify-center p-2 text-white font-bold text-xl overflow-hidden text-ellipsis whitespace-nowrap rounded-lg shadow-lg"
-            style={{ backgroundColor: colors[index] }}
+            style={{ backgroundColor: colors[index],
+              opacity: index === 1 ? 1 : 0.3,
+             }}
             animate={{ scale: index === 1 ? 1.2 : 1 }} // El del centro se ve más grande
             transition={{ duration: 0.1 }}
+            
           >
             {item}
           </motion.div>
@@ -80,7 +83,7 @@ const CubeSpinner = ({ items }) => {
       {/* Botón para girar */}
       <button
         onClick={spinCubes}
-        className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg cursor-pointer"
+        className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg cursor-pointer shadow-lg"
         disabled={spinning}
       >
         {spinning ? "⥁" : "▶"}
